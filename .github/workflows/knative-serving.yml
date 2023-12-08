@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Extract activator metadata
         id: meta-activator
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.serving-core.activator
           tags: |
@@ -34,7 +34,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Extract autoscaler metadata
         id: meta-autoscaler
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.serving-core.autoscaler
           tags: |
@@ -50,7 +50,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Extract controller metadata
         id: meta-controller
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.serving-core.controller
           tags: |
@@ -66,7 +66,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Extract queue metadata
         id: meta-queue
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.serving-core.queue
           tags: |
@@ -82,7 +82,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Extract webhook metadata
         id: meta-webhook
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.serving-core.webhook
           tags: |
@@ -98,7 +98,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Extract net-istio/controller metadata
         id: meta-net-istio-controller
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.net-istio.controller
           tags: |
@@ -114,7 +114,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Extract net-istio/webhook metadata
         id: meta-net-istio-webhook
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.knative-serving.net-istio.webhook
           tags: |
