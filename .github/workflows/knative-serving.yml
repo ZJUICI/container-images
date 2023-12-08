@@ -30,8 +30,8 @@ jobs:
           file: knative/serving/serving-core/activator.Dockerfile
           context: knative/serving/serving-core  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-activator.outputs.tags }}
+          labels: ${{ steps.meta-activator.outputs.labels }}
       - name: Extract autoscaler metadata
         id: meta-autoscaler
         uses: docker/metadata-action@v5.3.0
@@ -46,8 +46,8 @@ jobs:
           file: knative/serving/serving-core/autoscaler.Dockerfile
           context: knative/serving/serving-core  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-autoscaler.outputs.tags }}
+          labels: ${{ steps.meta-autoscaler.outputs.labels }}
       - name: Extract controller metadata
         id: meta-controller
         uses: docker/metadata-action@v5.3.0
@@ -62,8 +62,8 @@ jobs:
           file: knative/serving/serving-core/controller.Dockerfile
           context: knative/serving/serving-core  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-controller.outputs.tags }}
+          labels: ${{ steps.meta-controller.outputs.labels }}
       - name: Extract queue metadata
         id: meta-queue
         uses: docker/metadata-action@v5.3.0
@@ -78,8 +78,8 @@ jobs:
           file: knative/serving/serving-core/queue.Dockerfile
           context: knative/serving/serving-core  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-queue.outputs.tags }}
+          labels: ${{ steps.meta-queue.outputs.labels }}
       - name: Extract webhook metadata
         id: meta-webhook
         uses: docker/metadata-action@v5.3.0
@@ -94,8 +94,8 @@ jobs:
           file: knative/serving/serving-core/webhook.Dockerfile
           context: knative/serving/serving-core  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-webhook.outputs.tags }}
+          labels: ${{ steps.meta-webhook.outputs.labels }}
       - name: Extract net-istio/controller metadata
         id: meta-net-istio-controller
         uses: docker/metadata-action@v5.3.0
@@ -110,8 +110,8 @@ jobs:
           file: knative/serving/net-istio/controller.Dockerfile
           context: knative/serving/net-istio  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-net-istio-controller.outputs.tags }}
+          labels: ${{ steps.meta-net-istio-controller.outputs.labels }}
       - name: Extract net-istio/webhook metadata
         id: meta-net-istio-webhook
         uses: docker/metadata-action@v5.3.0
@@ -126,5 +126,5 @@ jobs:
           file: knative/serving/net-istio/webhook.Dockerfile
           context: knative/serving/net-istio  # context does not matter not as there are no files
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-net-istio-webhook.outputs.tags }}
+          labels: ${{ steps.meta-net-istio-webhook.outputs.labels }}
