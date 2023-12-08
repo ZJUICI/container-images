@@ -31,8 +31,8 @@ jobs:
           file: cert-manager/cainjector.Dockerfile
           context: cert-manager
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-cainjector.outputs.tags }}
+          labels: ${{ steps.meta-cainjector.outputs.labels }}
       - name: Extract controller metadata
         id: meta-controller
         uses: docker/metadata-action@v5.3.0
@@ -47,8 +47,8 @@ jobs:
           file: cert-manager/controller.Dockerfile
           context: cert-manager
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-controller.outputs.tags }}
+          labels: ${{ steps.meta-controller.outputs.labels }}
       - name: Extract webhook metadata
         id: meta-webhook
         uses: docker/metadata-action@v5.3.0
@@ -63,5 +63,5 @@ jobs:
           file: cert-manager/webhook.Dockerfile
           context: cert-manager
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-webhook.outputs.tags }}
+          labels: ${{ steps.meta-webhook.outputs.labels }}
