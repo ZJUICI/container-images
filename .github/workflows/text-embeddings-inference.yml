@@ -19,7 +19,7 @@ jobs:
       # cpu image
       - name: Extract CPU image metadata
         id: meta-cpu
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -36,7 +36,7 @@ jobs:
       # amphere 80 image
       - name: Extract Amphere 80 image metadata
         id: meta-amphere80
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -53,7 +53,7 @@ jobs:
       # amphere 86 image
       - name: Extract Amphere 86 image metadata
         id: meta-amphere86
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -70,7 +70,7 @@ jobs:
       # amphere 89 image
       - name: Extract Amphere 89 image metadata
         id: meta-amphere89
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.3.0
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
