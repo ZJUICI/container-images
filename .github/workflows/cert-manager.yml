@@ -1,0 +1,67 @@
+name: Sync cert-manager images
+
+on:
+  workflow_dispatch: # Allows to trigger the workflow manually in GitHub UI
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Extract cainjector metadata
+        id: meta-cainjector
+        uses: docker/metadata-action@v5.3.0
+        with:
+          images: zjuici/mirror.jetstack.cert-manager-cainjector
+          tags: |
+            # use custom value instead of git tag
+            type=semver,value=v1.12.4
+      - name: Build and push cainjector image
+        uses: docker/build-push-action@v5.1.0
+        with:
+          file: cert-manager/cainjector.Dockerfile
+          context: cert-manager
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Extract controller metadata
+        id: meta-controller
+        uses: docker/metadata-action@v5.3.0
+        with:
+          images: zjuici/mirror.jetstack.cert-manager-controller
+          tags: |
+            # use custom value instead of git tag
+            type=semver,value=v1.12.4
+      - name: Build and push controller image
+        uses: docker/build-push-action@v5.1.0
+        with:
+          file: cert-manager/controller.Dockerfile
+          context: cert-manager
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Extract webhook metadata
+        id: meta-webhook
+        uses: docker/metadata-action@v5.3.0
+        with:
+          images: zjuici/mirror.jetstack.cert-manager-webhook
+          tags: |
+            # use custom value instead of git tag
+            type=semver,value=v1.12.4
+      - name: Build and push webhook image
+        uses: docker/build-push-action@v5.1.0
+        with:
+          file: cert-manager/webhook.Dockerfile
+          context: cert-manager
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
