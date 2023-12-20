@@ -25,7 +25,7 @@ jobs:
           images: zjuici/mirror.huggingface.text-generation-inference
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.3.2
+            type=semver,pattern={{version}},value=v1.3.3
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
