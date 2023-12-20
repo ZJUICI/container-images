@@ -21,10 +21,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.3.0
         with:
-          images: zjuici/codeserver-tgi
+          images: zjuici/codeserver
+          flavor: |
+            suffix=-tgi
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=0.6.1
+            type=semver,pattern={{version}},value=0.7.1
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
