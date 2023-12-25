@@ -1,4 +1,4 @@
-FROM ghcr.io/huggingface/text-generation-inference:1.3.3
+FROM ghcr.io/huggingface/text-generation-inference:1.3.4
 
 # common environemnt variables
 ENV NB_USER jovyan

@@ -18,7 +18,7 @@ quay.io/jetstack/cert-manager-webhook | zjuici/mirror.jetstack.cert-manager-webh
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
 --- | --- | --- | ---
-ghcr.io/huggingface/text-generation-inference | zjuici/mirror.huggingface.text-generation-inference | 1.3.2 | <https://github.com/huggingface/text-generation-inference/>
+ghcr.io/huggingface/text-generation-inference | zjuici/mirror.huggingface.text-generation-inference | 1.3.4 | <https://github.com/huggingface/text-generation-inference/>
 ghcr.io/huggingface/text-embeddings-inference | zjuici/mirror.huggingface.text-embeddings-inference | 0.6.0 | <https://github.com/huggingface/text-embeddings-inference/>
 
 ### Knative
@@ -82,5 +82,5 @@ zjuici/codeserver | 0.5.0-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
 
 image | tag | TGI | PyTorch | cuda | cudnn
 ---|---|---|---|---|---
-zjuici/jupyter | 0.7.1-tgi | v1.3.3 | 2.1.1 | 12.1.0 | cudnn8
-zjuici/codeserver | 0.7.1-tgi | v1.3.3 | 2.1.1 | 12.1.0 | cudnn8
+zjuici/jupyter | 0.7.2-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
+zjuici/codeserver | 0.7.2-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
