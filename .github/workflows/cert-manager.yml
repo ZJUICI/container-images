@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Extract cainjector metadata
         id: meta-cainjector
-        uses: docker/metadata-action@v5.3.0
+        uses: docker/metadata-action@v5.4.0
         with:
           images: zjuici/mirror.jetstack.cert-manager-cainjector
           tags: |
@@ -35,7 +35,7 @@ jobs:
           labels: ${{ steps.meta-cainjector.outputs.labels }}
       - name: Extract controller metadata
         id: meta-controller
-        uses: docker/metadata-action@v5.3.0
+        uses: docker/metadata-action@v5.4.0
         with:
           images: zjuici/mirror.jetstack.cert-manager-controller
           tags: |
@@ -51,7 +51,7 @@ jobs:
           labels: ${{ steps.meta-controller.outputs.labels }}
       - name: Extract webhook metadata
         id: meta-webhook
-        uses: docker/metadata-action@v5.3.0
+        uses: docker/metadata-action@v5.4.0
         with:
           images: zjuici/mirror.jetstack.cert-manager-webhook
           tags: |
