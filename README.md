@@ -47,7 +47,7 @@ registry.k8s.io/prometheus-adapter/prometheus-adapter | zjuici/mirror.prometheus
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
 --- | --- | --- | ---
-quay.io/oauth2-proxy/oauth2-proxy | zjuici/mirror.oauth2-proxy.oauth2-proxy | v7.4.0 | <https://github.com/oauth2-proxy/oauth2-proxy>
+quay.io/oauth2-proxy/oauth2-proxy | zjuici/mirror.oauth2-proxy.oauth2-proxy | v7.5.1 | <https://github.com/oauth2-proxy/oauth2-proxy>
 
 ## Jupyter Images
 
