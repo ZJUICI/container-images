@@ -43,6 +43,12 @@ registry.k8s.io/sig-storage/nfs-subdir-external-provisioner | zjuici/mirror.kube
 registry.k8s.io/pause | zjuici/mirror.pause | 3.8 | <https://github.com/kubernetes/kubernetes/tree/master/build/pause>
 registry.k8s.io/prometheus-adapter/prometheus-adapter | zjuici/mirror.prometheus-adapter.prometheus-adapter | v0.10.0 | <https://github.com/kubernetes-sigs/prometheus-adapter>
 
+### OAuth2 Proxy
+
+Source Image | Mirrored Image | Latest Tag | Original Repo
+--- | --- | --- | ---
+quay.io/oauth2-proxy/oauth2-proxy | zjuici/mirror.oauth2-proxy.oauth2-proxy | v7.4.0 | <https://github.com/oauth2-proxy/oauth2-proxy>
+
 ## Jupyter Images
 
 > See <https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers> for more information.
