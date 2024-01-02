@@ -2,4 +2,4 @@
 
 > github repo: [prometheus-adapter](https://github.com/kubernetes-sigs/prometheus-adapter)
 >
-> version: v0.10.0
+> version: v0.11.1
