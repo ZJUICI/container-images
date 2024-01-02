@@ -37,7 +37,7 @@ gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook | zjuici/mirror.knativ
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
 --- | --- | --- | ---
-gcr.io/kubebuilder/kube-rbac-proxy | zjuici/mirror.kubebuilder.kube-rbac-proxy | v0.14.1 | <https://github.com/brancz/kube-rbac-proxy>
+gcr.io/kubebuilder/kube-rbac-proxy | zjuici/mirror.kubebuilder.kube-rbac-proxy | v0.14.2 | <https://github.com/brancz/kube-rbac-proxy>
 registry.k8s.io/kube-state-metrics/kube-state-metrics | zjuici/mirror.kube-state-metrics.kube-state-metrics | v2.9.2 | <https://github.com/kubernetes/kube-state-metrics>
 registry.k8s.io/sig-storage/nfs-subdir-external-provisioner | zjuici/mirror.kubernetes-sigs.nfs-subdir-external-provisioner | v4.0.2 | <https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner>
 registry.k8s.io/pause | zjuici/mirror.pause | 3.8 | <https://github.com/kubernetes/kubernetes/tree/master/build/pause>

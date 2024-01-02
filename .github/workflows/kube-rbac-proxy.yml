@@ -23,7 +23,7 @@ jobs:
           images: zjuici/mirror.kubebuilder.kube-rbac-proxy
           tags: |
             # use custom value instead of git tag
-            value=v0.14.1
+            value=v0.14.2
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
