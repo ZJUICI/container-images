@@ -41,7 +41,7 @@ gcr.io/kubebuilder/kube-rbac-proxy | zjuici/mirror.kubebuilder.kube-rbac-proxy |
 registry.k8s.io/kube-state-metrics/kube-state-metrics | zjuici/mirror.kube-state-metrics.kube-state-metrics | v2.9.2 | <https://github.com/kubernetes/kube-state-metrics>
 registry.k8s.io/sig-storage/nfs-subdir-external-provisioner | zjuici/mirror.kubernetes-sigs.nfs-subdir-external-provisioner | v4.0.2 | <https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner>
 registry.k8s.io/pause | zjuici/mirror.pause | 3.8 | <https://github.com/kubernetes/kubernetes/tree/master/build/pause>
-registry.k8s.io/prometheus-adapter/prometheus-adapter | zjuici/mirror.prometheus-adapter.prometheus-adapter | v0.10.0 | <https://github.com/kubernetes-sigs/prometheus-adapter>
+registry.k8s.io/prometheus-adapter/prometheus-adapter | zjuici/mirror.prometheus-adapter.prometheus-adapter | v0.11.1 | <https://github.com/kubernetes-sigs/prometheus-adapter>
 
 ### OAuth2 Proxy
 

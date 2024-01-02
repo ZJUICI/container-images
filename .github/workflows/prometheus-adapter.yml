@@ -23,7 +23,7 @@ jobs:
           images: zjuici/mirror.prometheus-adapter.prometheus-adapter
           tags: |
             # use custom value instead of git tag
-            value=v0.10.0
+            value=v0.11.1
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
