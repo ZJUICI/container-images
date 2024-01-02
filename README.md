@@ -43,6 +43,13 @@ registry.k8s.io/sig-storage/nfs-subdir-external-provisioner | zjuici/mirror.kube
 registry.k8s.io/pause | zjuici/mirror.pause | 3.8 | <https://github.com/kubernetes/kubernetes/tree/master/build/pause>
 registry.k8s.io/prometheus-adapter/prometheus-adapter | zjuici/mirror.prometheus-adapter.prometheus-adapter | v0.11.1 | <https://github.com/kubernetes-sigs/prometheus-adapter>
 
+### prometheus-operator
+
+Source Image | Mirrored Image | Latest Tag | Original Repo
+--- | --- | --- | ---
+quay.io/prometheus-operator/prometheus-operator | zjuici/mirror.prometheus-operator.prometheus-operator | v0.67.1 | <https://github.com/prometheus-operator/prometheus-operator>
+quay.io/prometheus-operator/prometheus-config-reloader | zjuici/mirror.prometheus-operator.prometheus-config-reloader | v0.67.1 | <https://github.com/prometheus-operator/prometheus-operator>
+
 ### OAuth2 Proxy
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
