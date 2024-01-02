@@ -23,7 +23,7 @@ jobs:
           images: zjuici/mirror.kube-state-metrics.kube-state-metrics
           tags: |
             # use custom value instead of git tag
-            value=v2.7.0
+            value=v2.9.2
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
