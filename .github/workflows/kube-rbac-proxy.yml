@@ -20,7 +20,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.4.0
         with:
-          images: zjuici/mirror.kubebuilder.kube-rbac-proxy
+          images: zjuici/mirror.brancz.kube-rbac-proxy
           tags: |
             # use custom value instead of git tag
             value=v0.14.2
