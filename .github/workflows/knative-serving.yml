@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # Allows to trigger the workflow manually in GitHub UI
 
 jobs:
-  serving-core-activator-image:
+  sync-knative-serving-images:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -23,7 +23,7 @@ jobs:
           images: zjuici/mirror.knative-serving.serving-core.activator
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.3
       - name: Build and push activator image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -39,7 +39,7 @@ jobs:
           images: zjuici/mirror.knative-serving.serving-core.autoscaler
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.3
       - name: Build and push autoscaler image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -55,7 +55,7 @@ jobs:
           images: zjuici/mirror.knative-serving.serving-core.controller
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.3
       - name: Build and push controller image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -71,7 +71,7 @@ jobs:
           images: zjuici/mirror.knative-serving.serving-core.queue
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.3
       - name: Build and push queue image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -87,7 +87,7 @@ jobs:
           images: zjuici/mirror.knative-serving.serving-core.webhook
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.3
       - name: Build and push webhook image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -103,7 +103,7 @@ jobs:
           images: zjuici/mirror.knative-serving.net-istio.controller
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.1
       - name: Build and push net-istio/controller image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -119,7 +119,7 @@ jobs:
           images: zjuici/mirror.knative-serving.net-istio.webhook
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=v1.11.0
+            value=v1.12.1
       - name: Build and push net-istio/webhook image
         uses: docker/build-push-action@v5.1.0
         with:
