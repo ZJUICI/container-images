@@ -91,4 +91,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: zjuici/mirror.huggingface.text-embeddings-inference
           short-description: mirror of huggingface text-embeddings-inference image
-          readme-filepath: ./huggingface/README.md
+          readme-filepath: ./huggingface/text-embeddings-inference/README.md
