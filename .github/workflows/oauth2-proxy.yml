@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v5.4.0
+        uses: docker/metadata-action@v5.5.0
         with:
           images: zjuici/mirror.oauth2-proxy.oauth2-proxy
           tags: |
