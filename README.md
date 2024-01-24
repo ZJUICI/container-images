@@ -31,17 +31,17 @@ The basic idea is that we provide images with some complicated dependencies pre-
 
 image | tag | PyTorch | cuda | cudnn
 ---|---|---|---|---
-zjuici/jupyter | 0.6.0-pytorch | 2.0.1 | 11.7 | cudnn8
+zjuici/jupyter | 0.6.1-pytorch | 2.0.1 | 11.7 | cudnn8
 zjuici/codeserver | 0.6.1-pytorch | 2.0.1 | 11.7 | cudnn8
 
 image | tag | DeepSpeed | PyTorch | cuda | cudnn
 ---|---|---|---|---|---
-zjuici/jupyter | 0.6.0-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
+zjuici/jupyter | 0.6.1-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
 zjuici/codeserver | 0.5.1-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
 
 image | tag | TGI | PyTorch | cuda | cudnn
 ---|---|---|---|---|---
-zjuici/jupyter | 0.7.2-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
+zjuici/jupyter | 0.7.3-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
 zjuici/codeserver | 0.7.3-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
 
 ## Mirrored Images
