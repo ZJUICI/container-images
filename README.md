@@ -41,8 +41,8 @@ zjuici/codeserver | 0.5.1-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
 
 image | tag | TGI | PyTorch | cuda | cudnn
 ---|---|---|---|---|---
-zjuici/jupyter | 0.7.3-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
-zjuici/codeserver | 0.7.3-tgi | v1.3.4 | 2.1.1 | 12.1.0 | cudnn8
+zjuici/jupyter | 0.7.4-tgi | v1.4.0 | 2.1.1 | 12.1.0 | cudnn8
+zjuici/codeserver | 0.7.4-tgi | v1.4.0 | 2.1.1 | 12.1.0 | cudnn8
 
 ## Mirrored Images
 
