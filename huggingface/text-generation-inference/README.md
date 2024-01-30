@@ -2,4 +2,4 @@
 
 > github repo: [text-generation-inference](https://github.com/huggingface/text-generation-inference)
 >
-> version: 1.3.4
+> version: 1.4.0
