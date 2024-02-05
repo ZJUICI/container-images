@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Extract prometheus-operator metadata
         id: meta-prometheus-operator
-        uses: docker/metadata-action@v5.5.0
+        uses: docker/metadata-action@v5.5.1
         with:
           images: zjuici/mirror.prometheus-operator.prometheus-operator
           tags: |
@@ -35,7 +35,7 @@ jobs:
           labels: ${{ steps.meta-prometheus-operator.outputs.labels }}
       - name: Extract prometheus-config-reloader metadata
         id: meta-prometheus-config-reloader
-        uses: docker/metadata-action@v5.5.0
+        uses: docker/metadata-action@v5.5.1
         with:
           images: zjuici/mirror.prometheus-operator.prometheus-config-reloader
           tags: |
