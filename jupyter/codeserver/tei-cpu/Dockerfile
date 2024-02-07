@@ -1,12 +1,5 @@
 FROM ghcr.io/huggingface/text-embeddings-inference:cpu-0.6
 
-# common environemnt variables
-ENV NB_USER jovyan
-ENV NB_UID 1000
-ENV NB_PREFIX /
-ENV HOME /home/$NB_USER
-ENV SHELL /bin/bash
-
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     apt-transport-https \
@@ -24,7 +17,19 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-RUN python -m pip install --upgrade --no-cache-dir pip 
+# install conda and python
+# copied from <https://github.com/huggingface/text-generation-inference/blob/main/Dockerfile>
+ARG TARGETPLATFORM
+ARG MAMBA_VERSION=23.11.0-0
+ENV PATH /opt/conda/bin:$PATH
+RUN case ${TARGETPLATFORM} in \
+         "linux/arm64")  MAMBA_ARCH=aarch64  ;; \
+         *)              MAMBA_ARCH=x86_64   ;; \
+    esac && \
+    curl -fsSL -v -o ~/mambaforge.sh -O  "https://github.com/conda-forge/miniforge/releases/download/${MAMBA_VERSION}/Mambaforge-${MAMBA_VERSION}-Linux-${MAMBA_ARCH}.sh"
+RUN chmod +x ~/mambaforge.sh && \
+    bash ~/mambaforge.sh -b -p /opt/conda && \
+    rm ~/mambaforge.sh
 
 # install - s6 overlay
 ARG S6_OVERLAY_VERSION=v3.1.6.2
@@ -55,6 +60,13 @@ RUN curl -LO "https://github.com/cdr/code-server/releases/download/v${CODESERVER
   && rm -f code-server_${CODESERVER_VERSION}_amd64.deb
 
 RUN code-server --install-extension ms-python.python
+
+# common environemnt variables
+ENV NB_USER jovyan
+ENV NB_UID 1000
+ENV NB_PREFIX /
+ENV HOME /home/$NB_USER
+ENV SHELL /bin/bash
 
 # create user and set required ownership
 RUN useradd -M -s /bin/bash -N -u ${NB_UID} ${NB_USER}
