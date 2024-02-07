@@ -30,6 +30,10 @@ The basic idea is that we provide images with some complicated dependencies pre-
 - text-generation-inference: requires to build a lot of kernels, while provides an ease-to-use Docker image. We leverage its Docker image.
 - text-embedding-inference: requires some effort to install locally, while provides some ease-to-use Docker images. Because it's a development setup, we pick the CPU image as the base image.
 
+> When mounting a volume as huggingface's cache directory, it's important to be aware that both text-generation-inference and text-embedding-inference Dockerfiles set  `HUGGINGFACE_HUB_CACHE` to `/data`.
+>
+> See [text-generation-inference](https://github.com/huggingface/text-generation-inference/blob/c2d4a3b5c7bb6a8367c00f7c797bf87f4b2fcef9/Dockerfile#L170) and [text-embedding-inference](https://github.com/huggingface/text-embeddings-inference/blob/282812743444c33f9e5f4f3681dbbe2472fd651e/Dockerfile#L72)
+
 ### Core Dependencies
 
 image | tag | PyTorch | cuda | cudnn
