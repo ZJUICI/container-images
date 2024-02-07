@@ -52,7 +52,7 @@ zjuici/jupyter | 0.7.4-tgi | v1.4.0 | 2.1.1 | 12.1.0 | cudnn8
 zjuici/codeserver | 0.7.4-tgi | v1.4.0 | 2.1.1 | 12.1.0 | cudnn8
 
 image | tag | TEI
----|---|---|---
+---|---|---
 zjuici/jupyter | 0.1.0-tei-cpu | v0.6.0
 zjuici/codeserver | 0.1.0-tei-cpu | v0.6.0
 
