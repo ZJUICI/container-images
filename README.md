@@ -108,4 +108,4 @@ quay.io/prometheus-operator/prometheus-config-reloader | zjuici/mirror.prometheu
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
 --- | --- | --- | ---
-quay.io/oauth2-proxy/oauth2-proxy | zjuici/mirror.oauth2-proxy.oauth2-proxy | v7.5.1 | <https://github.com/oauth2-proxy/oauth2-proxy>
+quay.io/oauth2-proxy/oauth2-proxy | zjuici/mirror.oauth2-proxy.oauth2-proxy | v7.6.0 | <https://github.com/oauth2-proxy/oauth2-proxy>
