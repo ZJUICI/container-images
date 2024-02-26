@@ -1,4 +1,4 @@
-FROM ghcr.io/huggingface/text-embeddings-inference:cpu-0.6
+FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.0
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -yq --no-install-recommends \
