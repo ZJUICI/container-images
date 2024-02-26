@@ -24,7 +24,7 @@ jobs:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
             # use custom value instead of git tag
-            value=cpu-0.6
+            value=cpu-1.0
       - name: Build and push CPU image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -41,7 +41,7 @@ jobs:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
             # use custom value instead of git tag
-            value=0.6
+            value=1.0
       - name: Build and push Amphere 80 image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -58,7 +58,7 @@ jobs:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
             # use custom value instead of git tag
-            value=86-0.6
+            value=86-1.0
       - name: Build and push Amphere 86 image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -75,7 +75,7 @@ jobs:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
             # use custom value instead of git tag
-            value=89-0.6
+            value=89-1.0
       - name: Build and push Amphere 89 image
         uses: docker/build-push-action@v5.1.0
         with:
