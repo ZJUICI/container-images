@@ -54,7 +54,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
   && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # install - code-server
-ARG CODESERVER_VERSION=4.20.1
+ARG CODESERVER_VERSION=4.21.2
 RUN curl -LO "https://github.com/cdr/code-server/releases/download/v${CODESERVER_VERSION}/code-server_${CODESERVER_VERSION}_amd64.deb" \
   && dpkg -i code-server_${CODESERVER_VERSION}_amd64.deb \
   && rm -f code-server_${CODESERVER_VERSION}_amd64.deb
