@@ -25,7 +25,7 @@ jobs:
             # use custom value instead of git tag
             value=v0.11.1
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5.1.0
+        uses: docker/build-push-action@v5.2.0
         with:
           file: kubernetes/prometheus-adapter/Dockerfile
           context: kubernetes/prometheus-adapter  # context does not matter not as there are no files
