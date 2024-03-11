@@ -75,6 +75,12 @@ Source Image | Mirrored Image | Latest Tag | Original Repo
 ghcr.io/huggingface/text-generation-inference | zjuici/mirror.huggingface.text-generation-inference | 1.4.3 | <https://github.com/huggingface/text-generation-inference/>
 ghcr.io/huggingface/text-embeddings-inference | zjuici/mirror.huggingface.text-embeddings-inference | 1.1.0 | <https://github.com/huggingface/text-embeddings-inference/>
 
+### llama.cpp
+
+Source Image | Mirrored Image | Latest Tag | Original Repo
+--- | --- | --- | ---
+ghcr.io/ggerganov/llama.cpp | zjuici/mirror.ggerganov.llama.cpp | server--b1-3814a07 | <https://github.com/ggerganov/llama.cpp/>
+
 ### Knative
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
