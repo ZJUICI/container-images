@@ -80,6 +80,7 @@ ghcr.io/huggingface/text-embeddings-inference | zjuici/mirror.huggingface.text-e
 Source Image | Mirrored Image | Latest Tag | Original Repo
 --- | --- | --- | ---
 ghcr.io/ggerganov/llama.cpp | zjuici/mirror.ggerganov.llama.cpp | server--b1-3814a07 | <https://github.com/ggerganov/llama.cpp/>
+ghcr.io/ggerganov/llama.cpp | zjuici/mirror.ggerganov.llama.cpp | server-cuda--b1-3814a07 | <https://github.com/ggerganov/llama.cpp/>
 
 ### Knative
 
