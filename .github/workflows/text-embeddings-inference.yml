@@ -26,7 +26,7 @@ jobs:
             # use custom value instead of git tag
             value=cpu-1.1
       - name: Build and push CPU image
-        uses: docker/build-push-action@v5.2.0
+        uses: docker/build-push-action@v5.3.0
         with:
           file: huggingface/text-embeddings-inference/Dockerfile.cpu
           context: huggingface/text-embeddings-inference # context does not matter not as there are no files
@@ -43,7 +43,7 @@ jobs:
             # use custom value instead of git tag
             value=1.1
       - name: Build and push Amphere 80 image
-        uses: docker/build-push-action@v5.2.0
+        uses: docker/build-push-action@v5.3.0
         with:
           file: huggingface/text-embeddings-inference/Dockerfile
           context: huggingface/text-embeddings-inference # context does not matter not as there are no files
@@ -60,7 +60,7 @@ jobs:
             # use custom value instead of git tag
             value=86-1.1
       - name: Build and push Amphere 86 image
-        uses: docker/build-push-action@v5.2.0
+        uses: docker/build-push-action@v5.3.0
         with:
           file: huggingface/text-embeddings-inference/Dockerfile.86
           context: huggingface/text-embeddings-inference # context does not matter not as there are no files
@@ -77,7 +77,7 @@ jobs:
             # use custom value instead of git tag
             value=89-1.1
       - name: Build and push Amphere 89 image
-        uses: docker/build-push-action@v5.2.0
+        uses: docker/build-push-action@v5.3.0
         with:
           file: huggingface/text-embeddings-inference/Dockerfile.89
           context: huggingface/text-embeddings-inference # context does not matter not as there are no files
