@@ -2,4 +2,4 @@
 
 > github repo: [text-embeddings-inference](https://github.com/huggingface/text-embeddings-inference)
 >
-> version: v1.1.0
+> version: v1.2.0
