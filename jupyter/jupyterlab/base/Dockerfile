@@ -50,7 +50,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 
 # install - jupyterlab
 RUN python -m pip install --upgrade --no-cache-dir \
-  jupyterlab==4.1.2 \
+  jupyterlab==4.1.5 \
   ipywidgets==8.1.2
 
 # create user and set required ownership
