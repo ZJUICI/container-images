@@ -1,4 +1,4 @@
-FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.0
+FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.2
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -yq --no-install-recommends \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # install conda and python
 # copied from <https://github.com/huggingface/text-generation-inference/blob/main/Dockerfile>
 ARG TARGETPLATFORM
-ARG MAMBA_VERSION=23.11.0-0
+ARG MAMBA_VERSION=24.1.2-0
 ENV PATH /opt/conda/bin:$PATH
 RUN case ${TARGETPLATFORM} in \
          "linux/arm64")  MAMBA_ARCH=aarch64  ;; \
@@ -54,7 +54,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
   && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # install - code-server
-ARG CODESERVER_VERSION=4.21.2
+ARG CODESERVER_VERSION=4.22.1
 RUN curl -LO "https://github.com/cdr/code-server/releases/download/v${CODESERVER_VERSION}/code-server_${CODESERVER_VERSION}_amd64.deb" \
   && dpkg -i code-server_${CODESERVER_VERSION}_amd64.deb \
   && rm -f code-server_${CODESERVER_VERSION}_amd64.deb
