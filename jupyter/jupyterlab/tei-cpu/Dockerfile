@@ -1,4 +1,4 @@
-FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.0
+FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.2
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -yq --no-install-recommends \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # install conda and python
 # copied from <https://github.com/huggingface/text-generation-inference/blob/main/Dockerfile>
 ARG TARGETPLATFORM
-ARG MAMBA_VERSION=23.11.0-0
+ARG MAMBA_VERSION=24.1.2-0
 ENV PATH /opt/conda/bin:$PATH
 RUN case ${TARGETPLATFORM} in \
          "linux/arm64")  MAMBA_ARCH=aarch64  ;; \
@@ -55,7 +55,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 
 # install - jupyterlab
 RUN python -m pip install --upgrade --no-cache-dir \
-  jupyterlab==4.1.2 \
+  jupyterlab==4.1.5 \
   ipywidgets==8.1.2
 
 # common environemnt variables
