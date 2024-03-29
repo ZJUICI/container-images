@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:2.2.1-cuda12.1-cudnn8-devel
+FROM pytorch/pytorch:2.2.2-cuda12.1-cudnn8-devel
 
 # common environemnt variables
 ENV NB_USER jovyan
@@ -49,7 +49,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
   && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # install - code-server
-ARG CODESERVER_VERSION=4.21.2
+ARG CODESERVER_VERSION=4.22.1
 RUN curl -LO "https://github.com/cdr/code-server/releases/download/v${CODESERVER_VERSION}/code-server_${CODESERVER_VERSION}_amd64.deb" \
   && dpkg -i code-server_${CODESERVER_VERSION}_amd64.deb \
   && rm -f code-server_${CODESERVER_VERSION}_amd64.deb
