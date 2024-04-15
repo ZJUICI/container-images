@@ -72,7 +72,7 @@ quay.io/jetstack/cert-manager-webhook | zjuici/mirror.jetstack.cert-manager-webh
 
 Source Image | Mirrored Image | Latest Tag | Original Repo
 --- | --- | --- | ---
-ghcr.io/huggingface/text-generation-inference | zjuici/mirror.huggingface.text-generation-inference | 1.4.5 | <https://github.com/huggingface/text-generation-inference/>
+ghcr.io/huggingface/text-generation-inference | zjuici/mirror.huggingface.text-generation-inference | 2.0.0 | <https://github.com/huggingface/text-generation-inference/>
 ghcr.io/huggingface/text-embeddings-inference | zjuici/mirror.huggingface.text-embeddings-inference | 1.2.0 | <https://github.com/huggingface/text-embeddings-inference/>
 
 ### llama.cpp
