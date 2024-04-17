@@ -1,2 +1,2 @@
 # Docker file for CPU
-FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.2
+FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.2.2
