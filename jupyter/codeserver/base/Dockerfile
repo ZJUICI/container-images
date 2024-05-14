@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 # common environemnt variables
 ENV NB_USER jovyan
