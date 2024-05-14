@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
+FROM zjuici/deepspeed:0.14.2
 
 # common environemnt variables
 ENV NB_USER jovyan
@@ -50,42 +50,8 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 
 # install - jupyterlab
 RUN python -m pip install --upgrade --no-cache-dir \
-  jupyterlab==4.1.5 \
+  jupyterlab==4.2.0 \
   ipywidgets==8.1.2
-
-# install triton 1.0.0
-# should be as easy as `pip install triton==1.0.0`, but my pip can only find triton==2.0.0
-# see more @ <https://github.com/openai/triton/>
-ENV TRITON_VERSION=v1.0
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-    libtinfo-dev \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
-RUN python -m pip install --no-cache-dir ninja cmake wheel
-RUN git clone https://github.com/openai/triton.git /tmp/triton \
-  && cd /tmp/triton \
-  && git checkout ${TRITON_VERSION} \
-  && pip install -e python
-
-# install deepspeed
-# pytorch 1.13 image ships nvcc in /usr/local/cuda/bin, which is not the correct nvcc
-# see <https://github.com/microsoft/DeepSpeed/issues/2684#issuecomment-1379666816>
-ENV PATH=/usr/local/cuda/bin:$PATH
-# TODO: migrate to newer versions
-# DeepSpeed >= v0.11.0 complains no async_io, although I have installed it.
-# DeepSpeed >- v0.10.0 complains about something else.
-ENV DEEPSPEED_VERSION=v0.9.5
-ENV DS_BUILD_OPS=1
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-    libaio1 \
-    libaio-dev \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
-RUN git clone https://github.com/microsoft/DeepSpeed.git /tmp/DeepSpeed \
-  && cd /tmp/DeepSpeed \
-  && git checkout ${DEEPSPEED_VERSION} \
-  && ./install.sh --allow_sudo \
-  && cd .. && rm -rf /tmp/DeepSpeed
 
 # create user and set required ownership
 # also copy the default .bashrc
