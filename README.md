@@ -38,8 +38,8 @@ The basic idea is that we provide images with some complicated dependencies pre-
 
 image | tag | PyTorch | cuda | cudnn
 ---|---|---|---|---
-zjuici/jupyter | 0.6.3-pytorch | 2.2.2 | 12.1 | cudnn8
-zjuici/codeserver | 0.6.4-pytorch | 2.2.2 | 12.1 | cudnn8
+zjuici/jupyter-pytorch | 0.1.0 | 2.3.0 | 12.1 | cudnn8
+zjuici/codeserver-pytorch | 0.1.0 | 2.3.0 | 12.1 | cudnn8
 
 image | tag | DeepSpeed | PyTorch | cuda | cudnn
 ---|---|---|---|---|---
