@@ -43,8 +43,8 @@ zjuici/codeserver-pytorch | 0.1.0 | 2.3.0 | 12.1 | cudnn8
 
 image | tag | DeepSpeed | PyTorch | cuda | cudnn
 ---|---|---|---|---|---
-zjuici/jupyter | 0.6.3-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
-zjuici/codeserver | 0.5.1-deepspeed | v0.9.5 | 1.13.1 | 11.6 | cudnn8
+zjuici/jupyter-deepspeed | 0.1.0 | v0.14.2 | 2.3.0 | 11.8 | cudnn8
+zjuici/codeserver-deepspeed | 0.1.0 | v0.14.2 | 2.3.0 | 11.8 | cudnn8
 
 image | tag | TGI | PyTorch | cuda | cudnn
 ---|---|---|---|---|---

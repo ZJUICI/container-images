@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
+FROM zjuici/deepspeed:0.14.2
 
 # common environemnt variables
 ENV NB_USER jovyan
@@ -49,48 +49,12 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
   && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # install - code-server
-# pytorch 1.13 use ubuntu 18.04 as base image, which ships node v
-# the latest code-server supports node v is 4.16.1
-ARG CODESERVER_VERSION=4.16.1
+ARG CODESERVER_VERSION=4.89.0
 RUN curl -LO "https://github.com/cdr/code-server/releases/download/v${CODESERVER_VERSION}/code-server_${CODESERVER_VERSION}_amd64.deb" \
   && dpkg -i code-server_${CODESERVER_VERSION}_amd64.deb \
   && rm -f code-server_${CODESERVER_VERSION}_amd64.deb
 
 RUN code-server --install-extension ms-python.python
-
-# install triton 1.0.0
-# should be as easy as `pip install triton==1.0.0`, but my pip can only find triton==2.0.0
-# see more @ <https://github.com/openai/triton/>
-ENV TRITON_VERSION=v1.0
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-    libtinfo-dev \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
-RUN python -m pip install --no-cache-dir ninja cmake wheel
-RUN git clone https://github.com/openai/triton.git /tmp/triton \
-  && cd /tmp/triton \
-  && git checkout ${TRITON_VERSION} \
-  && pip install -e python
-
-# install deepspeed
-# pytorch 1.13 image ships nvcc in /usr/local/cuda/bin, which is not the correct nvcc
-# see <https://github.com/microsoft/DeepSpeed/issues/2684#issuecomment-1379666816>
-ENV PATH=/usr/local/cuda/bin:$PATH
-# TODO: migrate to newer versions
-# DeepSpeed >= v0.11.0 complains no async_io, although I have installed it.
-# DeepSpeed >- v0.10.0 complains about something else.
-ENV DEEPSPEED_VERSION=v0.9.5
-ENV DS_BUILD_OPS=1
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-    libaio1 \
-    libaio-dev \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
-RUN git clone https://github.com/microsoft/DeepSpeed.git /tmp/DeepSpeed \
-  && cd /tmp/DeepSpeed \
-  && git checkout ${DEEPSPEED_VERSION} \
-  && ./install.sh --allow_sudo \
-  && cd .. && rm -rf /tmp/DeepSpeed
 
 # create user and set required ownership
 RUN useradd -M -s /bin/bash -N -u ${NB_UID} ${NB_USER}
