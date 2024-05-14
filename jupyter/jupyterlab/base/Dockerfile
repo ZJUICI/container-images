@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 # common environemnt variables
 ENV NB_USER jovyan
@@ -50,7 +50,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 
 # install - jupyterlab
 RUN python -m pip install --upgrade --no-cache-dir \
-  jupyterlab==4.1.5 \
+  jupyterlab==4.2.0 \
   ipywidgets==8.1.2
 
 # create user and set required ownership
