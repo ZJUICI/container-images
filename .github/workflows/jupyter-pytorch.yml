@@ -21,12 +21,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-          images: zjuici/jupyter
-          flavor: |
-            suffix=-pytorch
+          images: zjuici/jupyter-pytorch
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=0.6.3
+            type=semver,pattern={{version}},value=0.1.0
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.3.0
         with:
