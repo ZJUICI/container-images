@@ -10,17 +10,19 @@ ENV SHELL /bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     apt-transport-https \
-    bzip2  \
-    ca-certificates \
-    curl \
-    git \
-    locales \
     lsb-release \
-    unzip \
-    vim \
+    ca-certificates \
+    locales \
+    curl \
     wget \
-    xz-utils \
+    git \
+    bzip2  \
+    unzip \
     zip \
+    xz-utils \
+    vim \
+    procps \
+    sysstat \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
