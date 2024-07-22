@@ -28,7 +28,7 @@ jobs:
             # use custom value instead of git tag
             type=semver,pattern={{version}},value=0.2.1
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6.3.0
+        uses: docker/build-push-action@v6.4.1
         with:
           file: jupyter/codeserver/tei-cpu/Dockerfile
           context: jupyter/codeserver/tei-cpu
