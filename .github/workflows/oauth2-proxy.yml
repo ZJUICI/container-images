@@ -25,7 +25,7 @@ jobs:
             # use custom value instead of git tag
             value=v7.6.0
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6.7.0
+        uses: docker/build-push-action@v6.8.0
         with:
           file: oauth2-proxy/Dockerfile
           context: oauth2-proxy  # context does not matter not as there are no files
