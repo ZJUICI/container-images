@@ -19,7 +19,7 @@ jobs:
       # cpu image
       - name: Extract CPU image metadata
         id: meta-cpu
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -36,7 +36,7 @@ jobs:
       # cpu grpc image
       - name: Extract CPU grpc image metadata
         id: meta-cpu-grpc
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -53,7 +53,7 @@ jobs:
       # amphere 80 image
       - name: Extract Amphere 80 image metadata
         id: meta-amphere80
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -70,7 +70,7 @@ jobs:
       # amphere 80 grpc image
       - name: Extract Amphere 80 grpc image metadata
         id: meta-amphere80-grpc
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -87,7 +87,7 @@ jobs:
       # amphere 86 image
       - name: Extract Amphere 86 image metadata
         id: meta-amphere86
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -104,7 +104,7 @@ jobs:
       # amphere 86 grpc image
       - name: Extract Amphere 86 grpc image metadata
         id: meta-amphere86-grpc
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -121,7 +121,7 @@ jobs:
       # amphere 89 image
       - name: Extract Amphere 89 image metadata
         id: meta-amphere89
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
@@ -138,7 +138,7 @@ jobs:
       # amphere 89 grcp image
       - name: Extract Amphere 89 grcp image metadata
         id: meta-amphere89-grcp
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: zjuici/mirror.huggingface.text-embeddings-inference
           tags: |
