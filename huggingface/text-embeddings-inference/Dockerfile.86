@@ -1,2 +1,0 @@
-# Docker file for Ampere 86 Architecture (A10, A40, ...)
-FROM ghcr.io/huggingface/text-embeddings-inference:86-1.2.2
