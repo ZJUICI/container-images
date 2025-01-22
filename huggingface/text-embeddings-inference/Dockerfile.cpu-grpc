@@ -1,2 +1,0 @@
-# grpc Docker file for CPU
-FROM ghcr.io/huggingface/text-embeddings-inference:cpu-1.2.2-grpc
