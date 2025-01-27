@@ -26,7 +26,7 @@ jobs:
             # use custom value instead of git tag
             value=v0.5.2.post1
       - name: Build and push image
-        uses: docker/build-push-action@v6.12.0
+        uses: docker/build-push-action@v6.13.0
         with:
           file: openmmlab/lmdeploy/Dockerfile
           context: openmmlab/lmdeploy
