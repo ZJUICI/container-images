@@ -1,19 +1,15 @@
 # ZJUICI Container Images
 
-This repository contains common images used by ZJUICI, with some of them being kubeflow jupyter images.
+This repository contains common images used by ZJUICI.
 
-## Jupyter Images
+## Kubeflow Notebook Server Images
 
-> See <https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers> for more information.
+This section contains the Jupyter images that can be utilized as Kubeflow notebook servers. Typically, the images available at <https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers> will meet your requirements. If needed, you can easily upgrade Python packages using `mamba`.
 
-This section contains the Dockerfiles for the Jupyter images that can be used in kubeflow.
+We have extended these images primarily for the following reasons:
 
-There are currently 2 custom images:
-
-- jupyter lab
-  - JupyterLab image with [DeepSpeed](https://github.com/microsoft/DeepSpeed)
-- codeserver
-  - code-server image with [DeepSpeed](https://github.com/microsoft/DeepSpeed)
+- The version of `jupyterlab` is pinned in the example notebook images. We have upgraded it to enhance the user experience.
+- Some packages, such as `scikit-learn` and `deepspeed`, take a considerable amount of time to install. By pre-installing these in our custom images, we reduce the setup time for users.
 
 ### Core Dependencies
 
