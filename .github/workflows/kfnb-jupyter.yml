@@ -18,6 +18,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          repository: kubeflow/kubeflow
+          fetch-tags: true
+          ref: refs/tags/v1.9.2
+          sparse-checkout: |
+            components/example-notebook-servers
       - name: Log in to the Container registry
         uses: docker/login-action@v3.3.0
         with:
@@ -41,8 +47,16 @@ jobs:
         id: push
         uses: docker/build-push-action@v6.13.0
         with:
-          file: kubeflow/notebook-servers/jupyter/Dockerfile
-          context: kubeflow/notebook-servers/jupyter
+          file: components/example-notebook-servers/jupyter/Dockerfile
+          context: components/example-notebook-servers/jupyter
+          build-args: |
+            BASE_IMG=docker.io/kubeflownotebookswg/base:v1.9.2
+            JUPYTERLAB_VERSION=4.3.5
+            JUPYTER_VERSION=7.3.2
+            MINIFORGE_VERSION=24.11.3-0
+            NODE_MAJOR_VERSION=20
+            PIP_VERSION=25.0
+            PYTHON_VERSION=3.11.11
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
