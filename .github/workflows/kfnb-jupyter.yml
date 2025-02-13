@@ -43,18 +43,6 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
             type=sha,priority=850,prefix=
-      - name: Build base image
-        id: build-base
-        uses: docker/build-push-action@v6.13.0
-        with:
-          file: components/example-notebook-servers/base/Dockerfile
-          context: components/example-notebook-servers/base
-          build-args: |
-            BASE_IMG=ubuntu:22.04
-            S6_VERSION=v3.2.0.2
-          push: false
-          tags: ghcr.io/zjuici/kubeflow-notebooks/base:latest
-          labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6.13.0
@@ -62,7 +50,7 @@ jobs:
           file: components/example-notebook-servers/jupyter/Dockerfile
           context: components/example-notebook-servers/jupyter
           build-args: |
-            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/base:latest
+            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/base:${{ steps.meta.outputs.version }}
             JUPYTERLAB_VERSION=4.3.5
             JUPYTER_VERSION=7.3.2
             MINIFORGE_VERSION=24.11.3-0
