@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/kfnb-jupyter
+  IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter
 
 jobs:
   build-and-push-image:
@@ -53,7 +53,7 @@ jobs:
             BASE_IMG=ubuntu:22.04
             S6_VERSION=v3.2.0.2
           push: false
-          tags: ghcr.io/zjuici/kfnb-base:latest
+          tags: ghcr.io/zjuici/kubeflow-notebooks/base:latest
           labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push Docker image
         id: push
@@ -62,7 +62,7 @@ jobs:
           file: components/example-notebook-servers/jupyter/Dockerfile
           context: components/example-notebook-servers/jupyter
           build-args: |
-            BASE_IMG=ghcr.io/zjuici/kfnb-base:latest
+            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/base:latest
             JUPYTERLAB_VERSION=4.3.5
             JUPYTER_VERSION=7.3.2
             MINIFORGE_VERSION=24.11.3-0
