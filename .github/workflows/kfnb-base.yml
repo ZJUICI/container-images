@@ -1,11 +1,11 @@
-name: Publish Kubeflow Notebook Jupyter Data Analysis Image
+name: Publish Kubeflow Notebook Base Image
 
 on:
   workflow_dispatch: # Allows to trigger the workflow manually in GitHub UI
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-scipy
+  IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/base
 
 jobs:
   build-and-push-image:
@@ -47,10 +47,11 @@ jobs:
         id: push
         uses: docker/build-push-action@v6.13.0
         with:
-          file: components/example-notebook-servers/jupyter-scipy/Dockerfile
-          context: components/example-notebook-servers/jupyter-scipy
+          file: components/example-notebook-servers/base/Dockerfile
+          context: components/example-notebook-servers/base
           build-args: |
-            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/jupyter:${{ steps.meta.outputs.version }}
+            BASE_IMG=ubuntu:22.04
+            S6_VERSION=v3.2.0.2
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
