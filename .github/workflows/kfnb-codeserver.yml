@@ -6,6 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/base:2aea828
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: codeserver
 
@@ -59,7 +60,7 @@ jobs:
           file: components/example-notebook-servers/codeserver/Dockerfile
           context: components/example-notebook-servers/codeserver
           build-args: |
-            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/base:${{ steps.meta.outputs.version }}
+            BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
             CODESERVER_VERSION=4.96.4
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}

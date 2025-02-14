@@ -6,6 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/base:2aea828
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: jupyter
 
@@ -59,7 +60,7 @@ jobs:
           file: components/example-notebook-servers/jupyter/Dockerfile
           context: components/example-notebook-servers/jupyter
           build-args: |
-            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/base:${{ steps.meta.outputs.version }}
+            BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
             JUPYTERLAB_VERSION=4.3.5
             JUPYTER_VERSION=7.3.2
             MINIFORGE_VERSION=24.11.3-0
