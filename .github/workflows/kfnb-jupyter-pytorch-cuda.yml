@@ -62,7 +62,7 @@ jobs:
           # The index (https://download.pytorch.org/whl/cu121) is hard-coded in the Dockerfile,
           # which only supports up to these versions.
           build-args: |
-            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/jupyter:${{ steps.meta.outputs.version }}
+            BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
             PYTORCH_VERSION=2.5.1
             TORCHAUDIO_VERSION=2.5.1
             TORCHVISION_VERSION=0.20.1
