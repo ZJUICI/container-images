@@ -1,0 +1,77 @@
+name: Publish Kubeflow Notebook Code Server Image
+
+on:
+  workflow_dispatch: # Allows to trigger the workflow manually in GitHub UI
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver
+  CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
+  CACHE_TAG: codeserver
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+    steps:
+      # `docker/metadata-action` does this for us, but the `cache-from` and `cache-to` inputs directly read env and are cursed.
+      # See this long discussion: <https://github.com/orgs/community/discussions/25768>
+      - id: lower-repo
+        run: |
+          echo "CACHE_IMAGE=${CACHE_IMAGE@L}" >> ${GITHUB_ENV}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          repository: kubeflow/kubeflow
+          fetch-tags: true
+          ref: refs/tags/v1.9.2
+          sparse-checkout: |
+            components/example-notebook-servers
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3.3.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5.6.1
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          # semver has default priority 900, sha has default priority 100
+          # ref has default priority 600
+          # see <https://github.com/docker/metadata-action#priority-attribute>
+          # also, sha has a default prefix of '-sha'
+          # see <https://github.com/docker/metadata-action#typesha>
+          tags: |
+            type=semver,pattern={{version}}
+            type=sha,priority=850,prefix=
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v6.13.0
+        with:
+          file: components/example-notebook-servers/codeserver/Dockerfile
+          context: components/example-notebook-servers/codeserver
+          build-args: |
+            BASE_IMG=ghcr.io/zjuici/kubeflow-notebooks/base:${{ steps.meta.outputs.version }}
+            CODESERVER_VERSION=4.96.4
+          cache-from: |
+            type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
+          # See <https://docs.docker.com/build/cache/backends/#cache-mode>
+          cache-to: |
+            type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }},mode=max
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
