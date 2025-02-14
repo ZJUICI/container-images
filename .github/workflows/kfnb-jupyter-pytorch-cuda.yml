@@ -6,6 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-pytorch-cuda
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter:1d4424a
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: jupyter-pytorch-cuda
 
