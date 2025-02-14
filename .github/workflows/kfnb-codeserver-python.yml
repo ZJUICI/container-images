@@ -1,4 +1,4 @@
-name: Publish Kubeflow Notebook Code Server Image
+name: Publish Kubeflow Notebook Code Server Python Image
 
 on:
   workflow_dispatch: # Allows to trigger the workflow manually in GitHub UI
