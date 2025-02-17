@@ -1,19 +1,15 @@
 # ZJUICI Container Images
 
-This repository contains common images used by ZJUICI.
+This repository contains common container images used by ZJUICI.
 
 ## Kubeflow Notebook Server Images
 
-This section contains the Jupyter images that can be utilized as Kubeflow notebook servers. Typically, the images available at <https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers> will meet your requirements. If needed, you can easily upgrade Python packages using `mamba`.
+We have created custom Jupyter images that extend the [official example notebook servers](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers) to be used as Kubeflow notebook servers.
 
-We have extended these images primarily for the following reasons:
+In most senarios, the official example images should meet your needs. If necessary, you can easily upgrade Python packages using `mamba`. Our customizations to these images address the following points:
 
-- The version of `jupyterlab` is pinned in the example notebook images. We have upgraded it to enhance the user experience.
-- Some packages, such as `scikit-learn` and `deepspeed`, take a considerable amount of time to install. By pre-installing these in our custom images, we reduce the setup time for users.
+- Some base libraries, such as `jupyterlab`, are pinned to a specific version and are not regularly updated. We keep them in sync with the latest version.
+- The `-pytorch` example images only include Pytorch and its own cuda runtime, but not the CUDA compiler. Certain deep learning libraries such as `DeepSpeed` require the CUDA compiler to be present when installing.
+- Some packages, such as `DeepSpeed` and `vllm`, depend on specific CUDA versions. Unaware users may install versions that require a different CUDA version from the system-provided one, which can potentially break the CUDA environment.
 
-### Core Dependencies
-
-image | tag | DeepSpeed | PyTorch | cuda | cudnn
----|---|---|---|---|---
-zjuici/jupyter | deepspeed-0.16.3 | v0.16.3 | 2.5.1 | 12.4 | cudnn9
-zjuici/codeserver | deepspeed-0.16.3 | v0.16.3 | 2.5.1 | 12.4 | cudnn9
+You can explore all our customized notebook server images [here](https://github.com/orgs/ZJUICI/packages?visibility=public&tab=packages&q=kubeflow-notebooks).
