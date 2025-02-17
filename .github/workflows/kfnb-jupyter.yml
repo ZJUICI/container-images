@@ -23,6 +23,7 @@ jobs:
       # See this long discussion: <https://github.com/orgs/community/discussions/25768>
       - id: lower-repo
         run: |
+          echo "BASE_IMAGE=${BASE_IMAGE@L}" >> ${GITHUB_ENV}
           echo "CACHE_IMAGE=${CACHE_IMAGE@L}" >> ${GITHUB_ENV}
       - name: Checkout repository
         uses: actions/checkout@v4
