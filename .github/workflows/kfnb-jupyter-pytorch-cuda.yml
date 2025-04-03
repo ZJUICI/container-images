@@ -6,7 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-pytorch-cuda
-  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter:1d4424a
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter:c023fdd
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: jupyter-pytorch-cuda
 
@@ -30,7 +30,7 @@ jobs:
         with:
           repository: kubeflow/kubeflow
           fetch-tags: true
-          ref: refs/tags/v1.9.2
+          ref: refs/tags/v1.10.0
           sparse-checkout: |
             components/example-notebook-servers
       - name: Set up Docker Buildx
@@ -64,9 +64,9 @@ jobs:
           # which only supports up to these versions.
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
-            PYTORCH_VERSION=2.5.1
-            TORCHAUDIO_VERSION=2.5.1
-            TORCHVISION_VERSION=0.20.1
+            PYTORCH_VERSION=2.6.0
+            TORCHAUDIO_VERSION=2.6.0
+            TORCHVISION_VERSION=0.21.0
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
