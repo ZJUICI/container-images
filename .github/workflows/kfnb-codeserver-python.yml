@@ -64,12 +64,13 @@ jobs:
           # See <https://open-vsx.org/extension/ms-python/python>
           # CODESERVER_JUPYTER_VERSION: codeserver jupyter plugin version
           # See <https://open-vsx.org/extension/ms-toolsai/jupyter>
+          # Note that there's a "Works With" section on the page that indicates the VS Code version.
           # IPYKERNEL_VERSION: <https://github.com/ipython/ipykernel/releases>
           # MINIFORGE_VERSION: <https://github.com/conda-forge/miniforge/releases>
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
             CODESERVER_PYTHON_VERSION=2025.2.0
-            CODESERVER_JUPYTER_VERSION=2025.3.0
+            CODESERVER_JUPYTER_VERSION=2025.2.0
             IPYKERNEL_VERSION=6.29.5
             MINIFORGE_VERSION=24.11.3-2
             PIP_VERSION=25.0.1
