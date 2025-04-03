@@ -6,7 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-pytorch-cuda-devel
-  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-pytorch-cuda:1d4424a
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-pytorch-cuda:9d6b24a
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: jupyter-pytorch-cuda-devel
 
@@ -54,12 +54,16 @@ jobs:
         with:
           file: kubeflow/notebook-servers/jupyter-pytorch-cuda-devel/Dockerfile
           context: kubeflow/notebook-servers/jupyter-pytorch-cuda-devel
-          # The index (https://download.pytorch.org/whl/cu121) is hard-coded in the Dockerfile,
+          # The index (https://download.pytorch.org/whl/cu124) is hard-coded in the upstream's Dockerfile,
           # which only supports up to these versions.
+          # ---
+          # Upstream: <https://github.com/kubeflow/kubeflow/blob/v1.10.0/components/example-notebook-servers/jupyter-pytorch-cuda/Dockerfile>
+          # All CUDA versions: <https://developer.nvidia.com/cuda-toolkit-archive>
+          # Supported Compilers: <https://docs.nvidia.com/cuda/archive/12.4.1/cuda-installation-guide-linux/index.html#host-compiler-support-policy>
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
-            CUDA_VERSION=12.1.1
-            GCC_VERSION=12.2
+            CUDA_VERSION=12.4.1
+            GCC_VERSION=13.2
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
