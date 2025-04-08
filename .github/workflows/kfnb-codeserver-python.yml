@@ -6,7 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver-python
-  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver:956b685
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver:cff355c
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: codeserver-python
 
@@ -70,7 +70,7 @@ jobs:
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
             CODESERVER_PYTHON_VERSION=2025.2.0
-            CODESERVER_JUPYTER_VERSION=2025.2.0
+            CODESERVER_JUPYTER_VERSION=2025.3.0
             IPYKERNEL_VERSION=6.29.5
             MINIFORGE_VERSION=24.11.3-2
             PIP_VERSION=25.0.1
