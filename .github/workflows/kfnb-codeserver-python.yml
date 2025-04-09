@@ -6,7 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver-python
-  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver:cff355c
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver:1928124
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: codeserver-python
 
