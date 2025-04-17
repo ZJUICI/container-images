@@ -6,7 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver-python
-  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver:1928124
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/codeserver:d418bd3
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: codeserver-python
 
@@ -69,12 +69,12 @@ jobs:
           # MINIFORGE_VERSION: <https://github.com/conda-forge/miniforge/releases>
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
-            CODESERVER_PYTHON_VERSION=2025.2.0
+            CODESERVER_PYTHON_VERSION=2025.4.0
             CODESERVER_JUPYTER_VERSION=2025.3.0
             IPYKERNEL_VERSION=6.29.5
             MINIFORGE_VERSION=24.11.3-2
             PIP_VERSION=25.0.1
-            PYTHON_VERSION=3.13.2
+            PYTHON_VERSION=3.13.3
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
