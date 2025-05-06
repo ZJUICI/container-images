@@ -60,14 +60,16 @@ jobs:
         with:
           file: components/example-notebook-servers/jupyter-pytorch-cuda/Dockerfile
           context: components/example-notebook-servers/jupyter-pytorch-cuda
-          # The index (https://download.pytorch.org/whl/cu124) is hard-coded in the Dockerfile,
+          # The index (<https://download.pytorch.org/whl/cu124>) is hard-coded in the Dockerfile,
           # which only supports up to these versions.
           # See <https://github.com/kubeflow/kubeflow/blob/v1.10.0/components/example-notebook-servers/jupyter-pytorch-cuda/Dockerfile>
+          # NOTE: When searching <https://download.pytorch.org/whl/cu124> for available versions, you still need to find those with
+          # "+cu124" suffix.
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
-            PYTORCH_VERSION=2.7.0
-            TORCHAUDIO_VERSION=2.7.0
-            TORCHVISION_VERSION=0.22.0
+            PYTORCH_VERSION=2.6.0
+            TORCHAUDIO_VERSION=2.6.0
+            TORCHVISION_VERSION=0.21.0
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
