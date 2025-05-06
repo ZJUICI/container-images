@@ -6,7 +6,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter-scipy
-  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter:c023fdd
+  BASE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/jupyter:a57dcc3
   CACHE_IMAGE: ${{ github.repository_owner }}/kubeflow-notebooks/build-cache
   CACHE_TAG: jupyter-scipy
 
