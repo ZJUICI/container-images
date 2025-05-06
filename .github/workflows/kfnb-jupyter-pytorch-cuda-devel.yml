@@ -19,9 +19,12 @@ jobs:
       attestations: write
       id-token: write
     steps:
-      # `docker/metadata-action` does this for us, but the `cache-from` and `cache-to` inputs directly read env and are cursed.
-      # See this long discussion: <https://github.com/orgs/community/discussions/25768>
+      - name: Delete huge unnecessary tools folder
+        # See <https://github.com/orgs/community/discussions/25678>
+        run: rm -rf /opt/hostedtoolcache
       - id: lower-repo
+        # `docker/metadata-action` does this for us, but the `cache-from` and `cache-to` inputs directly read env and are cursed.
+        # See this long discussion: <https://github.com/orgs/community/discussions/25768>
         run: |
           echo "BASE_IMAGE=${BASE_IMAGE@L}" >> ${GITHUB_ENV}
           echo "CACHE_IMAGE=${CACHE_IMAGE@L}" >> ${GITHUB_ENV}
