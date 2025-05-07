@@ -64,8 +64,8 @@ jobs:
           # for <https://pypi.org/project/notebook/>
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
-            JUPYTERLAB_VERSION=4.4.1
-            JUPYTER_VERSION=7.4.1
+            JUPYTERLAB_VERSION=4.4.2
+            JUPYTER_VERSION=7.4.2
             MINIFORGE_VERSION=24.11.3-2
             NODE_MAJOR_VERSION=22
             PIP_VERSION=25.0.1
