@@ -59,8 +59,8 @@ jobs:
           file: components/example-notebook-servers/base/Dockerfile
           context: components/example-notebook-servers/base
           build-args: |
-            BASE_IMG=ubuntu:22.04
-            S6_VERSION=v3.2.0.3
+            BASE_IMG=ubuntu:24.04
+            S6_VERSION=v3.2.1.0
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
