@@ -58,8 +58,12 @@ jobs:
         with:
           file: components/example-notebook-servers/base/Dockerfile
           context: components/example-notebook-servers/base
+          # Do not upgrade to Ubuntu 23.04 or newer — it introduces a default 'ubuntu' user (UID 1000),
+          # which conflicts with the NB_UID in the base image. NB_UID is defined via ENV, not ARG,
+          # so we can't override it at build time.
+          # Safe to upgrade once this PR is merged: https://github.com/kubeflow/kubeflow/pull/7728
           build-args: |
-            BASE_IMG=ubuntu:24.04
+            BASE_IMG=ubuntu:22.04
             S6_VERSION=v3.2.1.0
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
