@@ -70,11 +70,11 @@ jobs:
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
             CODESERVER_PYTHON_VERSION=2025.4.0
-            CODESERVER_JUPYTER_VERSION=2025.3.0
+            CODESERVER_JUPYTER_VERSION=2025.6.0
             IPYKERNEL_VERSION=6.29.5
-            MINIFORGE_VERSION=24.11.3-2
+            MINIFORGE_VERSION=25.3.0-3
             PIP_VERSION=25.1.1
-            PYTHON_VERSION=3.13.3
+            PYTHON_VERSION=3.13.5
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
