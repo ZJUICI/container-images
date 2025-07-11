@@ -62,7 +62,7 @@ jobs:
           context: components/example-notebook-servers/codeserver
           build-args: |
             BASE_IMG=${{ env.REGISTRY }}/${{ env.BASE_IMAGE }}
-            CODESERVER_VERSION=4.100.3
+            CODESERVER_VERSION=4.101.2
           cache-from: |
             type=registry,ref=${{ env.REGISTRY }}/${{ env.CACHE_IMAGE }}:${{ env.CACHE_TAG }}
           # See <https://docs.docker.com/build/cache/backends/#cache-mode>
