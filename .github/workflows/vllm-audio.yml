@@ -1,0 +1,43 @@
+name: Publish vllm audio image
+
+on:
+  workflow_dispatch: # Allows to trigger the workflow manually in GitHub UI
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/vllm
+  IMAGE_TAG: v0.9.2
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3.4.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5.7.0
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            suffix=-audio
+          tags: |
+            # use custom value instead of git tag
+            type=semver,pattern={{version}},value=${{ env.IMAGE_TAG }}
+      - name: Build Docker image
+        uses: docker/build-push-action@v6.18.0
+        with:
+          file: vllm-project/vllm/Dockerfile
+          context: vllm-project/vllm
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
