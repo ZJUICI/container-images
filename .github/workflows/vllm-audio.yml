@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/vllm
+  IMAGE_NAME: ${{ github.repository_owner }}/vllm-openai
   IMAGE_TAG: v0.9.2
 
 jobs:
@@ -14,7 +14,12 @@ jobs:
     permissions:
       contents: read
       packages: write
+      attestations: write
+      id-token: write
     steps:
+      - name: Delete huge unnecessary tools folder
+        # See <https://github.com/orgs/community/discussions/25678>
+        run: rm -rf /opt/hostedtoolcache
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Log in to the Container registry
@@ -33,7 +38,7 @@ jobs:
           tags: |
             # use custom value instead of git tag
             type=semver,pattern={{version}},value=${{ env.IMAGE_TAG }}
-      - name: Build Docker image
+      - name: Build and push Docker image
         uses: docker/build-push-action@v6.18.0
         with:
           file: vllm-project/vllm/Dockerfile
