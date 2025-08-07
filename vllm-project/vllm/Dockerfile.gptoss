@@ -1,0 +1,9 @@
+FROM vllm/vllm-openai:gptoss
+
+RUN git clone --depth=1 https://github.com/Dao-AILab/flash-attention.git \
+  && cd flash-attention/hopper \
+  && python3 setup.py install \
+  && cd ../.. \
+  && rm -rf flash-attention
+
+RUN pip install transformers>=4.55.0
