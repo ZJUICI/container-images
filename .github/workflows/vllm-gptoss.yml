@@ -35,7 +35,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             # use custom value instead of git tag
-            type=semver,pattern={{version}},value=${{ env.IMAGE_TAG }}
+            type=raw,value=${{ env.IMAGE_TAG }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.18.0
         with:
