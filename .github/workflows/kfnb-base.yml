@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "CACHE_IMAGE=${CACHE_IMAGE@L}" >> ${GITHUB_ENV}
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: kubeflow/kubeflow
           fetch-tags: true
