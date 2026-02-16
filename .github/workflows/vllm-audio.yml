@@ -39,7 +39,7 @@ jobs:
             # use custom value instead of git tag
             type=semver,pattern={{version}},value=${{ env.IMAGE_TAG }}
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6.18.0
+        uses: docker/build-push-action@v6.19.2
         with:
           file: vllm-project/vllm/Dockerfile.audio
           context: vllm-project/vllm
