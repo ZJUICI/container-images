@@ -21,7 +21,7 @@ jobs:
         # See <https://github.com/orgs/community/discussions/25678>
         run: rm -rf /opt/hostedtoolcache
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Log in to the Container registry
         uses: docker/login-action@v4.2.0
         with:
